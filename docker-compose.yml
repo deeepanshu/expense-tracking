@@ -1,0 +1,13 @@
+services:
+  expense-tracker:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - path: /home/deepanshu/config/shared.env
+        required: false
+      - path: /home/deepanshu/config/shared.secrets.env
+        required: false
+      - path: .env
+        required: false
+    volumes:
+      - ./data:/app/data
