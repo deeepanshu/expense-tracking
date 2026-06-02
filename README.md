@@ -7,7 +7,7 @@ Personal Discord receipt tracker. Upload a receipt image in one dedicated Discor
 - Language/runtime: Python 3.12 managed by `uv`
 - Discord: dedicated channel only
 - AI: OpenAI vision model (`gpt-4o-mini` by default)
-- Storage: SQLite + local receipt images
+- Storage: SQLite + local receipt images, managed through SQLAlchemy ORM
 - Confirmation: Discord Approve / Reject buttons
 - Default currency: THB when missing
 - Categories: groceries, restaurant, cafe, household, personal care, health, transport, electronics, clothing, entertainment, fees/taxes, other

@@ -24,7 +24,7 @@
 - `src/models.py` - Pydantic normalized receipt schema with categories and mismatch detection.
 - `src/settings.py` - typed environment settings.
 - `src/receipt_parser.py` - OpenAI vision parser with strict JSON schema.
-- `src/db.py` - SQLite schema, receipt/version/item persistence, approve/reject, CSV rows.
+- `src/db.py` - SQLAlchemy ORM models plus SQLite receipt/version/item persistence, approve/reject, CSV rows.
 - `src/formatting.py` - Discord receipt summary formatting.
 - `src/bot.py` - Discord bot for dedicated channel ingestion and approval buttons.
 - `src/export_csv.py` - CSV export entrypoint.
