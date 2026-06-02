@@ -62,7 +62,7 @@ uv run python -m src.bot
 
 ## Docker Compose
 
-The service joins both the project default network and the external `observability` network so future logs/metrics/OTLP exporters can reach the shared observability stack.
+The service joins both the project default network and the external `observability` network. It emits structured JSON logs to stdout and exports OpenTelemetry traces/metrics to `http://otel-collector:4318` by default.
 
 Create the external network once if it does not exist:
 
@@ -77,6 +77,8 @@ make up
 make logs
 make down
 ```
+
+Current metrics/traces include receipt images received, parse success/failure, approval/rejection counts, image size, and AI parse duration. Override with `OTEL_EXPORTER_OTLP_ENDPOINT` or disable with `OTEL_ENABLED=false`.
 
 ## Checks
 

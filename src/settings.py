@@ -32,6 +32,12 @@ class Settings(BaseSettings):
     image_dir: Path = Field(default=Path("data/images"), alias="IMAGE_DIR")
     max_image_bytes: int = Field(default=8 * 1024 * 1024, alias="MAX_IMAGE_BYTES")
     default_currency: str = Field(default="THB", alias="DEFAULT_CURRENCY")
+    otel_service_name: str = Field(default="expense-tracker", alias="OTEL_SERVICE_NAME")
+    otel_exporter_otlp_endpoint: str = Field(
+        default="http://otel-collector:4318",
+        alias="OTEL_EXPORTER_OTLP_ENDPOINT",
+    )
+    otel_enabled: bool = Field(default=True, alias="OTEL_ENABLED")
 
     @model_validator(mode="after")
     def require_runtime_secrets(self) -> Settings:
