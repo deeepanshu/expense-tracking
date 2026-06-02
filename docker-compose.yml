@@ -11,3 +11,10 @@ services:
         required: false
     volumes:
       - ./data:/app/data
+    networks:
+      - default
+      - observability
+
+networks:
+  observability:
+    external: true

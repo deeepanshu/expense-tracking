@@ -62,6 +62,16 @@ uv run python -m src.bot
 
 ## Docker Compose
 
+The service joins both the project default network and the external `observability` network so future logs/metrics/OTLP exporters can reach the shared observability stack.
+
+Create the external network once if it does not exist:
+
+```bash
+docker network create observability
+```
+
+Then run:
+
 ```bash
 make up
 make logs
