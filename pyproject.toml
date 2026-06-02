@@ -1,0 +1,35 @@
+[project]
+name = "expense-tracker"
+version = "0.1.0"
+description = "Personal Discord receipt expense tracker"
+requires-python = ">=3.12"
+dependencies = [
+  "discord.py>=2.4.0",
+  "openai>=1.59.0",
+  "opentelemetry-api>=1.29.0",
+  "opentelemetry-exporter-otlp-proto-http>=1.29.0",
+  "opentelemetry-sdk>=1.29.0",
+  "pydantic>=2.10.0",
+  "pydantic-settings>=2.7.0",
+  "python-dotenv>=1.0.1",
+  "sqlalchemy>=2.0.36",
+]
+
+[project.optional-dependencies]
+dev = ["mypy>=1.14.0", "pytest>=8.3.0", "ruff>=0.8.0"]
+
+[tool.ruff]
+line-length = 130
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src", "tests"]
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
