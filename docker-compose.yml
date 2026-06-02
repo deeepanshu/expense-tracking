@@ -3,11 +3,11 @@ services:
     build: .
     restart: unless-stopped
     env_file:
-      - path: /home/deepanshu/config/shared.env
+      - path: ${EXPENSE_TRACKER_SHARED_ENV_FILE:-.env.shared}
         required: false
-      - path: /home/deepanshu/config/shared.secrets.env
+      - path: ${EXPENSE_TRACKER_SHARED_SECRETS_FILE:-.env.secrets}
         required: false
-      - path: .env
+      - path: ${EXPENSE_TRACKER_ENV_FILE:-.env}
         required: false
     volumes:
       - ./data:/app/data

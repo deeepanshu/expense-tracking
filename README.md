@@ -29,23 +29,31 @@ uv sync --extra dev
 cp .env.example .env
 ```
 
-Secrets can live in `/home/deepanshu/config/shared.secrets.env`:
+For local runs, put required values in `.env` or export them in your shell:
 
 ```env
 DISCORD_BOT_TOKEN=...
+RECEIPT_CHANNEL_ID=...
 OPENAI_API_KEY=...
 ```
 
-Then keep project-specific values in `.env`:
+Optional model/currency values have defaults:
 
 ```env
-RECEIPT_CHANNEL_ID=...
 OPENAI_RECEIPT_MODEL=gpt-4o-mini
 OPENAI_CORRECTION_MODEL=gpt-4o-mini
 DEFAULT_CURRENCY=THB
 ```
 
 `DISCORD_TOKEN` and `OPENAI_MODEL` are also accepted as backwards-compatible aliases.
+
+For Docker Compose, do not commit machine-specific config paths. If you keep shared env files outside the repo, point Compose at them from your ignored local `.env` or shell:
+
+```env
+EXPENSE_TRACKER_SHARED_ENV_FILE=/path/to/shared.env
+EXPENSE_TRACKER_SHARED_SECRETS_FILE=/path/to/shared.secrets.env
+EXPENSE_TRACKER_ENV_FILE=.env
+```
 
 Discord bot requirements:
 
