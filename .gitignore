@@ -10,7 +10,6 @@ __pycache__/
 .env
 .env.*
 !.env.example
-docker-compose.override.yml
 
 # Runtime data
 /data/

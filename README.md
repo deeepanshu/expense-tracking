@@ -29,7 +29,7 @@ uv sync --extra dev
 cp .env.example .env
 ```
 
-For local runs, put required values in `.env` or export them in your shell:
+Put required values in repo-local `.env`:
 
 ```env
 DISCORD_BOT_TOKEN=...
@@ -46,8 +46,6 @@ DEFAULT_CURRENCY=THB
 ```
 
 `DISCORD_TOKEN` and `OPENAI_MODEL` are also accepted as backwards-compatible aliases.
-
-For Docker Compose, the committed file only reads repo-local `.env`. If you keep shared env files outside the repo, put those paths in an ignored `docker-compose.override.yml` on your machine, not in committed code.
 
 Discord bot requirements:
 
