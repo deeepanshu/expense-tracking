@@ -3,11 +3,7 @@ services:
     build: .
     restart: unless-stopped
     env_file:
-      - path: ${EXPENSE_TRACKER_SHARED_ENV_FILE:-.env.shared}
-        required: false
-      - path: ${EXPENSE_TRACKER_SHARED_SECRETS_FILE:-.env.secrets}
-        required: false
-      - path: ${EXPENSE_TRACKER_ENV_FILE:-.env}
+      - path: .env
         required: false
     volumes:
       - ./data:/app/data

@@ -47,13 +47,7 @@ DEFAULT_CURRENCY=THB
 
 `DISCORD_TOKEN` and `OPENAI_MODEL` are also accepted as backwards-compatible aliases.
 
-For Docker Compose, do not commit machine-specific config paths. If you keep shared env files outside the repo, point Compose at them from your ignored local `.env` or shell:
-
-```env
-EXPENSE_TRACKER_SHARED_ENV_FILE=/path/to/shared.env
-EXPENSE_TRACKER_SHARED_SECRETS_FILE=/path/to/shared.secrets.env
-EXPENSE_TRACKER_ENV_FILE=.env
-```
+For Docker Compose, the committed file only reads repo-local `.env`. If you keep shared env files outside the repo, put those paths in an ignored `docker-compose.override.yml` on your machine, not in committed code.
 
 Discord bot requirements:
 
